@@ -14,6 +14,10 @@ const randomIntegerFromInterval = (min, max) => {
 };
 
 function randomBackgroundColorStart() {
+  if (colorIntervaId) {
+    return;
+  }
+
   colorIntervaId = setInterval(() => {
     let randomNumber = randomIntegerFromInterval(0, colors.length);
     let randomColor = colors[`${randomNumber}`];
