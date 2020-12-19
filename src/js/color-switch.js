@@ -7,6 +7,7 @@ const refs = {
 };
 
 let colorIntervaId = null;
+refs.stopBtn.disabled = true;
 
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -18,9 +19,13 @@ function randomBackgroundColorStart() {
     let randomColor = colors[`${randomNumber}`];
     refs.body.style.backgroundColor = randomColor;
   }, 1000);
+  refs.startBtn.disabled = true;
+  refs.stopBtn.disabled = false;
 }
 
 function randomBackgroundColorStop() {
+  refs.stopBtn.disabled = true;
+  refs.startBtn.disabled = false;
   clearInterval(colorIntervaId);
 }
 
